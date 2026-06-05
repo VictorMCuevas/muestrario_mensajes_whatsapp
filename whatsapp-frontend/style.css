@@ -119,7 +119,6 @@
     min-height: 30%;
     align-content: center;
     padding: 0%;
-
 }
 
 .bocadilloTexto {
@@ -422,6 +421,23 @@ select {
         align-items: center;
         position: inherit;
     }
+}
 
-    
+@media(max-width: 768px) {
+    .bocadillo {
+        width: 90%;
+    }
+
+    .imgEjemplo {
+        max-width: 90%;
+    }
+
+    .cont-botone,
+    .cont-texto {
+        width: 95% !important;
+    }
+
+    .cont-top {
+        width: 95% !important;
+    }
 }

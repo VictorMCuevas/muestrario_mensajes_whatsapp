@@ -176,7 +176,7 @@ function comprobarNumero() {
     try {
         const resultado = parsePhoneNumber(phone, codigoPais);
 
-        if (resultado?.isValid()) {
+        if (resultado?.isValid() && resultado.country === codigoPais) {
             document.getElementById("phone").dataset.numeroValidado = resultado.format("E.164");
             return true;
         } else {

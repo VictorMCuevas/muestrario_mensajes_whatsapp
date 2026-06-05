@@ -97,7 +97,9 @@ function main() {
     paises.forEach(pais => {
         const option = document.createElement('option');
         option.value = pais.code;
-        //Por defecto, codigo de España
+        option.dataset.cldr = pais.cldr;
+        option.dataset.nombre = pais.name;
+
         if (pais.cldr === "ES") {
             option.selected = true
             inputTel.value = pais.code
@@ -105,18 +107,25 @@ function main() {
             nombrePais.value = pais.name
         }
         option.textContent = `${pais.name} (${pais.code})`;
-
-        option.addEventListener("click", () => {
-            inputTel.value = pais.code
-            codigoPais.value = pais.cldr
-            nombrePais.value = pais.name
-
-        })
-
         select.appendChild(option);
     });
 
+    select.addEventListener("change", () => {
+        const selected = select.options[select.selectedIndex];
+        inputTel.value = selected.value;
+        codigoPais.value = selected.dataset.cldr;
+        nombrePais.value = selected.dataset.nombre;
+    });
 
+    inputTel.addEventListener("blur", () => {
+        const prefijo = select.options[select.selectedIndex]?.value || "";
+        if (inputTel.value && inputTel.value !== prefijo) {
+            const esValido = comprobarNumero();
+            if (esValido) {
+                rellenarCabecera();
+            }
+        }
+    });
 }
 
 main()
