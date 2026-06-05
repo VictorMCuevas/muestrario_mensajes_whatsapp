@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="images/logo.png">
+
+  <title>Catalogo WhatsApp</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+  <!-- Custom styles for this template -->
+  <link href="bootstrap/product.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+      <div id="contLogo" class="logoCentro">
+        <a class="py-2 justify-content-start" href="https://github.com/VictorMCuevas">
+          <img src="images/logo.png" alt="Logotipo de VMBC" style="width: 100%;">
+        </a>
+      </div>
+
+      <div id="nav" class="navbarNone">
+      </div>
+
+    </div>
+   
+  </nav>
+
+  <div class="cont-principal position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 font-weight-normal">Catálogo de mensajes WhatsApp</h1>
+      <p class="lead font-weight-normal">Ejemplos de mensajes disponibles en WhatsApp con API de Meta</p>
+      <p class="lead font-weight-normal">Nº de teléfono: </p>
+      <select name="prefijo" id="prefijo" class="prefijo">
+        <option value="none" data-name="none">--Prefijo--</option>
+      </select>
+      <input type="tel" id="phone" class="inputTelefono" placeholder="Número destino" onchange="rellenarCabecera()">
+      <input type="hidden" id="codigoPais" value="">
+      <input type="hidden" id="nombrePais" value="">
+    </div>
+    <div class="movil product-device box-shadow d-none d-md-block">
+      <img class="img_cabecera" src="images/WhatsApp.svg" alt="">
+    </div>
+    <div class="movil product-device product-device-2 box-shadow d-none d-md-block">
+      <img class="img_cabecera" src="images/WhatsApp.svg" alt="">
+    </div>
+    <div class="contDesplegable">
+      <button class="desplegable" onclick="rellenarCabecera()">Desplegar</button>
+    </div>
+  </div>
+
+  <div id="contenedor" class="cont">
+    <div class="muestas">
+      <div class="duoCard d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div id="plantilla" class=" card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center  overflow-hidden">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Plantillas</h2>
+            <p class="lead">Envío de plantillas genéricas.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-botone bg-light box-shadow mx-auto" style="width: 80%; height: 300px;">
+            <div class="bocadillo">
+              <button class="boton btn " onclick="sendTemplate()"><img class="imgEjemplo" src="images/plantilla.png"
+                  alt=""></button>
+            </div>
+
+          </div>
+        </div>
+        <div id="texto" class="card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-5">Mensajes de texto</h2>
+            <p class="lead">Redacta y envía mensajes de texto.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-texto bg-dark box-shadow mx-auto" style="width: 80%; height: 300px;">
+            <div class="bocadilloTexto">
+              <input type="text" id="mensaje" class="inputTexto" placeholder="Escribe un mensaje">
+              <br>
+              <button class="btnEnvio" onclick="sendText()"><img src="images/icons8-enviado-48.png" alt=""></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="duoCard d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div id="interactivo" class="card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-5">Mensajes interactivos</h2>
+            <p class="lead">Envía mensajes interactivos para tus clientes.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-botone bg-dark box-shadow mx-auto" style="width: 80%; height: 350px;">
+            <div class="bocadillo">
+              <button class="boton btn " onclick="sendInteractive()">
+                <img class="imgEjemplo" src="images/interactivos.png" alt=""></button>
+            </div>
+          </div>
+        </div>
+        <div id="btnRespuesta" class="card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Botones de respuesta</h2>
+            <p class="lead">Envía mensajes con botones de respuesta rápida.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-botone bg-light box-shadow mx-auto" style="width: 80%; height: 350px;">
+            <div class="bocadillo">
+              <button class="boton btn " onclick="sendResp()">
+                <img class="imgEjemplo" src="images/respuesta1.png" alt="">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="duoCard d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div id="ubicacion" class=" card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center  overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-5">Ubicación</h2>
+            <p class="lead">Envía la ubicación de tu negocio.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-botone bg-white box-shadow mx-auto" style="width: 80%; height: 350px;">
+            <div class="bocadillo">
+              <button class="boton btn " onclick="sendDir()"><img class="imgEjemplo" src="images/ubicacion.png"
+                  alt=""></button>
+            </div>
+          </div>
+        </div>
+        <div id="link" class="card bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Envía tu web</h2>
+            <p class="lead">Envía un mensaje con el link a tu página web.</p>
+          </div>
+          <div class="cont-top box-shadow mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;">
+            <div><span class="contImgContacto"><img class="imagenContacto" src="images/logo.png"
+                  alt="Logo VMBC"></span></div>
+            <div class="datosContacto"></div>
+          </div>
+          <div class="cont-botone bg-white box-shadow mx-auto" style="width: 80%; height: 350px;">
+            <div class="bocadillo">
+              <button class="boton btn " onclick="sendUrl()"><img class="imgEjemplo" src="images/enlace.png"
+                  alt=""></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <footer class="container-fluid py-5 bg-light">
+        <div class="footer">
+          <div class="row">
+            <!-- Logo y RRSS -->
+            <div class="col-12 col-md-3 mb-4 mb-md-0">
+              <img class="logo mb-3" src="images/logo.png" alt="Logotipo de VMCB" style="max-width: 200px;">
+              <!-- Logos RRSS -->
+              <div class="d-flex gap-2">
+                <a href="https://github.com/VictorMCuevas" target="_blank" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2.4 -2.4 28.8 28.8" width="40px" height="40px">
+                    <circle cx="12" cy="12" r="12" fill="#333"/>
+                    <path fill="#fff" d="M12 2.247C6.477 2.247 2 6.724 2 12.247c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.111-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 7.431c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.41 22 16.664 22 12.247c0-5.523-4.477-10-10-10z"/>
+                  </svg>
+                </a>
+                <a href="#" target="_blank" title="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="40px">
+                    <path fill="#0288d1" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z" />
+                    <path fill="#fff"
+                      d="M14 19H18V34H14zM15.988 17h-.022C14.772 17 14 16.11 14 14.999 14 13.864 14.796 13 16.011 13c1.217 0 1.966.864 1.989 1.999C18 16.11 17.228 17 15.988 17zM35 24.5c0-3.038-2.462-5.5-5.5-5.5-1.862 0-3.505.928-4.5 2.344V19h-4v15h4v-8c0-1.657 1.343-3 3-3s3 1.343 3 3v8h4C35 34 35 24.921 35 24.5z" />
+                  </svg>
+                </a>
+                <a href="#" target="_blank" title="Instagram">
+                  <svg width="40px" height="40px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="20" fill="#C13584"></circle>
+                    <path
+                      d="M24 14.1622C27.2041 14.1622 27.5837 14.1744 28.849 14.2321C30.019 14.2855 30.6544 14.481 31.0773 14.6453C31.6374 14.863 32.0371 15.123 32.457 15.5429C32.877 15.9629 33.137 16.3626 33.3547 16.9227C33.519 17.3456 33.7145 17.981 33.7679 19.1509C33.8256 20.4163 33.8378 20.7958 33.8378 23.9999C33.8378 27.2041 33.8256 27.5836 33.7679 28.849C33.7145 30.019 33.519 30.6543 33.3547 31.0772C33.137 31.6373 32.877 32.0371 32.4571 32.457C32.0371 32.8769 31.6374 33.1369 31.0773 33.3546C30.6544 33.519 30.019 33.7144 28.849 33.7678C27.5839 33.8255 27.2044 33.8378 24 33.8378C20.7956 33.8378 20.4162 33.8255 19.151 33.7678C17.981 33.7144 17.3456 33.519 16.9227 33.3546C16.3626 33.1369 15.9629 32.8769 15.543 32.457C15.1231 32.0371 14.863 31.6373 14.6453 31.0772C14.481 30.6543 14.2855 30.019 14.2321 28.849C14.1744 27.5836 14.1622 27.2041 14.1622 23.9999C14.1622 20.7958 14.1744 20.4163 14.2321 19.1509C14.2855 17.981 14.481 17.3456 14.6453 16.9227C14.863 16.3626 15.123 15.9629 15.543 15.543C15.9629 15.123 16.3626 14.863 16.9227 14.6453C17.3456 14.481 17.981 14.2855 19.151 14.2321C20.4163 14.1744 20.7959 14.1622 24 14.1622ZM24 12C20.741 12 20.3323 12.0138 19.0524 12.0722C17.7752 12.1305 16.9028 12.3333 16.1395 12.63C15.3504 12.9366 14.6812 13.3469 14.0141 14.0141C13.3469 14.6812 12.9366 15.3504 12.63 16.1395C12.3333 16.9028 12.1305 17.7751 12.0722 19.0524C12.0138 20.3323 12 20.741 12 23.9999C12 27.259 12.0138 27.6676 12.0722 28.9475C12.1305 30.2248 12.3333 31.0971 12.63 31.8604C12.9366 32.6495 13.3469 33.3187 14.0141 33.9859C14.6812 34.653 15.3504 35.0633 16.1395 35.3699C16.9028 35.6666 17.7752 35.8694 19.0524 35.9277C20.3323 35.9861 20.741 35.9999 24 35.9999C27.259 35.9999 27.6677 35.9861 28.9476 35.9277C30.2248 35.8694 31.0972 35.6666 31.8605 35.3699C32.6496 35.0633 33.3188 34.653 33.9859 33.9859C34.653 33.3187 35.0634 32.6495 35.37 31.8604C35.6667 31.0971 35.8695 30.2248 35.9278 28.9475C35.9862 27.6676 36 27.259 36 23.9999C36 20.741 35.9862 20.3323 35.9278 19.0524C35.8695 17.7751 35.6667 16.9028 35.37 16.1395C35.0634 15.3504 34.653 14.6812 33.9859 14.0141C33.3188 13.3469 32.6496 12.9366 31.8605 12.63C31.0972 12.3333 30.2248 12.1305 28.9476 12.0722C27.6677 12.0138 27.259 12 24 12Z"
+                      fill="white"></path>
+                    <path
+                      d="M24.0059 17.8433C20.6026 17.8433 17.8438 20.6021 17.8438 24.0054C17.8438 27.4087 20.6026 30.1675 24.0059 30.1675C27.4092 30.1675 30.1681 27.4087 30.1681 24.0054C30.1681 20.6021 27.4092 17.8433 24.0059 17.8433ZM24.0059 28.0054C21.7968 28.0054 20.0059 26.2145 20.0059 24.0054C20.0059 21.7963 21.7968 20.0054 24.0059 20.0054C26.2151 20.0054 28.0059 21.7963 28.0059 24.0054C28.0059 26.2145 26.2151 28.0054 24.0059 28.0054Z"
+                      fill="white"></path>
+                    <path
+                      d="M31.8507 17.5963C31.8507 18.3915 31.206 19.0363 30.4107 19.0363C29.6154 19.0363 28.9707 18.3915 28.9707 17.5963C28.9707 16.801 29.6154 16.1562 30.4107 16.1562C31.206 16.1562 31.8507 16.801 31.8507 17.5963Z"
+                      fill="white"></path>
+                  </svg>
+                </a>
+                <a href="#" target="_blank" title="WhatsApp">
+                  <img class="logoWhatsapp" src="images/WhatsApp.svg" alt="Logotipo de WhatsApp">
+                </a>
+              </div>
+            </div>
+
+          <!-- Copyright -->
+          <div class="row border-top mt-5 pt-4">
+            <div class="col-12 text-center text-muted small">
+              <p>&copy; 2026 VMBC. Todos los derechos reservados.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.10.51/libphonenumber-js.min.js"></script>
+
+
+  <script src="bootstrap/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="bootstrap/popper.min.js"></script>
+  <script src="bootstrap/bootstrap.min.js"></script>
+  <script src="bootstrap/holder.min.js"></script>
+  <script>
+    Holder.addTheme('thumb', {
+      bg: '#55595c',
+      fg: '#eceeef',
+      text: 'Thumbnail'
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <script src="app.js"></script>
+  <script src="telefonos.js"></script>
+
+
+</body>
+
+</html>
